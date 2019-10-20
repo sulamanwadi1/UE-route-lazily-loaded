@@ -1,0 +1,15 @@
+
+<p>Currency List</p>
+
+<table class="table table-sm mt-4">
+        <tr>
+            <th width="180px">Name</th>
+            <th>Code</th>
+            <th>Symbol</th>
+        </tr>
+        <tr *ngFor="let c of currencyList">
+            <td>{{c.name}}</td>
+            <td>{{c.code}}</td>
+            <td>{{c.symbol}}</td>
+        </tr>
+</table>

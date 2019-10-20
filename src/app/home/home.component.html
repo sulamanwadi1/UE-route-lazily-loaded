@@ -1,0 +1,32 @@
+<p>Home > Country Details</p>
+
+<table class="table table-sm mt-4" *ngIf="countryDetail.name != undefined">
+    <tr>
+        <td width="160px">Country Name</td>
+        <td>{{countryDetail.name}}</td>
+    </tr>
+    <tr>
+        <td>Capital</td>
+        <td>{{countryDetail.capital}}</td>
+    </tr>
+    <tr>
+        <td>Region</td>
+        <td>{{countryDetail.region}}</td>
+    </tr>
+    <tr>
+        <td>Sub region</td>
+        <td>{{countryDetail.subregion}}</td>
+    </tr>
+    <tr>
+        <td>Population</td>
+        <td>{{countryDetail.population}}</td>
+    </tr>
+    <tr>
+        <td>Area</td>
+        <td>{{countryDetail.area}}</td>
+    </tr>
+    <tr>
+        <td>Alpha 3 Code</td>
+        <td>{{countryDetail.alpha3Code}}</td>
+    </tr>
+</table>

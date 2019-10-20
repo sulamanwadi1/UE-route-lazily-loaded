@@ -1,0 +1,13 @@
+
+<p>Language List</p>
+
+<table class="table table-sm mt-4">
+        <tr>
+            <th width="180px">Name</th>
+            <th>Native Name</th>
+        </tr>
+        <tr *ngFor="let l of languageList">
+            <td>{{l.name}}</td>
+            <td>{{l.nativeName}}</td>
+        </tr>
+</table>
