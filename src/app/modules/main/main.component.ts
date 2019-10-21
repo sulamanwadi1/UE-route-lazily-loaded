@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataShareService } from '../../services/sharedata.service';
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,7 @@ export class MainComponent implements OnInit {
 
   countrySelectData:any=[];
   countryValue = 'SelectCountry';
-  subscription:any = [];
+  subscription:Subscription[] = [];
 
   constructor(private dataShareService: DataShareService) { }
 
@@ -32,9 +33,7 @@ export class MainComponent implements OnInit {
   }
   
   ngOnDestroy() {
-    for(let i=0; i<this.subscription.length; i++){
-      this.subscription[i].unsubscribe();
-    }
+    this.subscription.forEach(s => s.unsubscribe());
   }
 
 }

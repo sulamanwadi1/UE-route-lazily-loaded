@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataShareService } from '../../services/sharedata.service';
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { DataShareService } from '../../services/sharedata.service';
 export class HomeComponent implements OnInit {
 
   countryDetail:any={}
-  subscription:any = [];
+  subscription:Subscription[] = [];
 
   constructor(private dataShareService: DataShareService, private ActRoute: ActivatedRoute) {
     this.subscription.push( 
@@ -45,9 +46,7 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnDestroy() {
-    for(let i=0; i<this.subscription.length; i++){
-      this.subscription[i].unsubscribe();
-    }
+    this.subscription.forEach(s => s.unsubscribe());
   }
   
 }

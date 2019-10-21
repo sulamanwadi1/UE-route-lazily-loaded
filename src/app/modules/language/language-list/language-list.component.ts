@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataShareService } from '../../../services/sharedata.service';
+import { Subscription }   from 'rxjs';
 
 @Component({
   selector: 'app-language-list',
@@ -10,7 +11,7 @@ import { DataShareService } from '../../../services/sharedata.service';
 export class LanguageListComponent implements OnInit {
 
   languageList = [];
-  subscription:any = [];
+  subscription:Subscription[] = [];
 
   constructor(private dataShareService: DataShareService, private ActRoute: ActivatedRoute) {
     this.subscription.push( 
@@ -44,9 +45,7 @@ export class LanguageListComponent implements OnInit {
   }
   
   ngOnDestroy() {
-    for(let i=0; i<this.subscription.length; i++){
-      this.subscription[i].unsubscribe();
-    }
+    this.subscription.forEach(s => s.unsubscribe());
   }
   
 }
