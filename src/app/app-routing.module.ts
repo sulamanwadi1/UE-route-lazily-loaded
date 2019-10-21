@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'currency',
-    loadChildren: () => import('./currency/currency.module').then(mod => mod.CurrencyModule)
+    loadChildren: () => import('./modules/currency/currency.module').then(mod => mod.CurrencyModule)
   },
   {
     path: 'language',
-    loadChildren: () => import('./language/language.module').then(mod => mod.LanguageModule)
+    loadChildren: () => import('./modules/language/language.module').then(mod => mod.LanguageModule)
   },
   {
     path: '',

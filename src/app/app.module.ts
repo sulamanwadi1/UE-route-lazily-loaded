@@ -6,8 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomeComponent } from './home/home.component';
-import { MainComponent } from './main/main.component';
+import { HomeComponent } from './modules/home/home.component';
+import { MainComponent } from './modules/main/main.component';
 
 
 @NgModule({
