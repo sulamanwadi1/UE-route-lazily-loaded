@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataShareService } from '../sharedata.service';
 
@@ -10,7 +9,7 @@ import { DataShareService } from '../sharedata.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http: HttpClient, private dataShareService: DataShareService, private ActRoute: ActivatedRoute) {
+  constructor(private dataShareService: DataShareService, private ActRoute: ActivatedRoute) {
     this.ActRoute.params.subscribe( ()=> {
       this.loadData(this.dataShareService.apiCodeData);
     });
@@ -26,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   loadData(dat){
     if(dat != ''){
-      this.http.get('https://restcountries.eu/rest/v2/alpha/'+dat).subscribe(
+      this.dataShareService.apiUrl2(dat).subscribe(
         data => {
           this.countryDetail = data;
         },
